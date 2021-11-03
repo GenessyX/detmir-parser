@@ -3,7 +3,7 @@ import requests
 import csv
 import sys
 
-def generate_session():
+def generate_session() -> requests.session:
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate, br",
@@ -72,7 +72,7 @@ def parse_site(city: str='RU-MOW', category: str = 'lego', logging: bool = True)
         offset += limit
         if logging:
             sys.stdout.flush()
-            sys.stdout.write("\r{}".format(str(offset)))
+            sys.stdout.write("\rItem count - {}".format(str(offset)))
             sys.stdout.flush()
     csvfile.close()
 
